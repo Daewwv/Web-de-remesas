@@ -16,7 +16,7 @@
             max-width: 600px;
             margin: auto;
             background: white;
-            padding: 20px;
+            padding: 20px;    
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             color: black;
@@ -53,6 +53,23 @@
             color: black;
             font-size: 18px;
             font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .exchange-rate span {
+            display: inline-block;
+            position: relative;
+            animation: bounceText 4s ease-in-out infinite alternate;
+        }
+        @keyframes bounceText {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(50px); }
         }
         img {
             width: 100%;
@@ -67,7 +84,10 @@
         <p>Aquí puedes encontrar mis enlaces y pruebas de pago.</p>
         
         <div class="exchange-rate">
-            💱 <strong>Tasa del día:</strong> 1 Real = 53 CUP en Tarjeta Cuba
+            <span>💱 <strong>Tasa del día:</strong> 1 Real = 53 CUP en Tarjeta Cuba</span>
+        </div>
+        <div class="exchange-rate">
+            <span>📲 <strong>Saldo:</strong> 1 Real = 53 Saldo Móvil</span>
         </div>
         
         <div class="links">
