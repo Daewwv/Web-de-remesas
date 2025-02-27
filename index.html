@@ -8,21 +8,27 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: linear-gradient(135deg, #87CEFA, #B0E0E6);
+            background: linear-gradient(135deg, #4A90E2, #56CCF2);
             color: white;
             padding: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .container {
             max-width: 600px;
             margin: auto;
             background: white;
             padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
             color: black;
         }
         h1 {
             color: #333;
+            font-size: 26px;
         }
         .links a {
             display: block;
@@ -31,11 +37,15 @@
             background: #007bff;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         .links a:hover {
             background: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
         }
         .links .whatsapp {
             font-size: 22px;
@@ -45,6 +55,12 @@
         .links .whatsapp:hover {
             background: #1da851;
         }
+        .links .whatsapp-group {
+            background: #34B7F1;
+        }
+        .links .whatsapp-group:hover {
+            background: #1C88B8;
+        }
         .exchange-rate {
             margin-top: 20px;
             padding: 15px;
@@ -53,30 +69,32 @@
             color: black;
             font-size: 18px;
             font-weight: bold;
-            overflow: hidden;
-            position: relative;
             width: 90%;
             max-width: 500px;
-            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-left: auto;
             margin-right: auto;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+            border: 2px solid #FFD700;
         }
-        .exchange-rate span {
-            display: inline-block;
-            position: relative;
-            animation: bounceText 3s ease-in-out infinite alternate;
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        @keyframes bounceText {
-            0% { transform: translateX(-30px); }
-            100% { transform: translateX(30px); }
-        }
-        img {
-            width: 100%;
-            border-radius: 5px;
-            margin-top: 10px;
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
         }
     </style>
 </head>
@@ -86,7 +104,7 @@
         <p>Aquí puedes encontrar mis enlaces y pruebas de pago.</p>
         
         <div class="exchange-rate">
-            <span>💱 <strong>Tasa del día:</strong> 1 Real = 57 CUP en Tarjeta Cuba</span>
+            <span>💱 <strong>Tasa del día:</strong> 1 Real = 56 CUP en Tarjeta Cuba</span>
         </div>
         <div class="exchange-rate">
             <span>📲 <strong>Saldo:</strong> 1 Real = 59 Saldo Móvil</span>
@@ -94,9 +112,10 @@
         
         <div class="links">
             <a href="https://wa.me/5541996123134?text=Hola%20Marlon,%20vengo%20desde%20la%20web%20y%20estoy%20interesado%20en%20las%20remesas%20hacia%20Cuba,%20podrías%20darme%20información" target="_blank" class="whatsapp">📲 Contacto por WhatsApp</a>
-            <a href="https://t.me/MarlonDae?text=Hola%20Marlon,%20vengo%20desde%20la%20web%20y%20estoy%20interesado%20en%20las%20remesas%20hacia%20Cuba,%20podrías%20darme%20información" target="_blank">📩 Contacto por Telegram</a>
+            <a href="https://chat.whatsapp.com/FIcgNkJodVs0AbrYzOhQSW" target="_blank" class="whatsapp-group">💬 Grupo de WhatsApp - Remesas</a>
             <a href="https://t.me/refer_MarlonDae" target="_blank">📢 Canal de Telegram - Pruebas de Pago</a>
         </div>
     </div>
+    <a href="https://wa.me/5541996123134" class="floating-whatsapp" target="_blank">📩</a>
 </body>
 </html>
