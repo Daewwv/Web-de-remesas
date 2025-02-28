@@ -3,88 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remesas Cuba</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Remesas Cuba | Envíos Rápidos y Seguros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            text-align: center;
-            background: linear-gradient(to right, #2C3E50, #4CA1AF);
-            color: white;
+        :root {
+            --primary: #2A5298;
+            --secondary: #25D366;
+            --accent: #FFD700;
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            min-height: 100vh;
+            position: relative;
+        }
+
         .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
-            color: black;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
         }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 3rem;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
         h1 {
-            color: #2C3E50;
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .exchange-rate {
-            background: #FFD700;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
-        .links a {
-            display: block;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+        }
+
+        .rate-card {
+            text-align: center;
+        }
+
+        .rate-value {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            margin: 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
             text-decoration: none;
-            transition: all 0.3s ease;
         }
-        .whatsapp { background: #25D366; color: white; }
-        .whatsapp:hover { background: #1da851; }
-        .whatsapp-group { background: #34B7F1; color: white; }
-        .whatsapp-group:hover { background: #1C88B8; }
-        .telegram { background: #0088cc; color: white; }
-        .telegram:hover { background: #006699; }
+
+        .whatsapp-btn {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .telegram-btn {
+            background: #0088cc;
+            color: white;
+        }
+
+        .cta-button:hover {
+            filter: brightness(1.1);
+            transform: scale(1.05);
+        }
+
+        /* Estilos para la calculadora */
+        .calculator {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 500px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .calculator input {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .calculator .result {
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* Botón flotante de WhatsApp */
         .floating-whatsapp {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
+            bottom: 30px;
+            left: 30px;
+            background: var(--secondary);
             color: white;
             padding: 15px;
             border-radius: 50%;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
             font-size: 24px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
             text-decoration: none;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
+            z-index: 1000;
         }
+
         .floating-whatsapp:hover {
             transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Menú desplegable */
+        .whatsapp-menu {
+            position: fixed;
+            bottom: 90px;
+            left: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            z-index: 1000;
+        }
+
+        .whatsapp-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .whatsapp-menu a:hover {
+            background: #e0e0e0;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Remesas a Cuba - Servicio Confiable</h1>
-        <p>Conéctate con nosotros para enviar remesas seguras y rápidas a Cuba.</p>
-        
-        <div class="exchange-rate">💱 <strong>Tasa del día:</strong> 1 Real = 56 CUP en Tarjeta Cuba</div>
-        <div class="exchange-rate">📲 <strong>Saldo Móvil:</strong> 1 Real = 59 CUP</div>
-        
-        <div class="links">
-            <a href="https://wa.me/5541996123134" target="_blank" class="whatsapp">📲 Contacto por WhatsApp</a>
-            <a href="https://chat.whatsapp.com/FIcgNkJodVs0AbrYzOhQSW" target="_blank" class="whatsapp-group">💬 Grupo de WhatsApp - Remesas</a>
-            <a href="https://t.me/refer_MarlonDae" target="_blank" class="telegram">📢 Canal de Telegram - Pruebas de Pago</a>
+        <header class="hero">
+            <h1>Remesas a Cuba 🇨🇺</h1>
+            <p class="floating-icon">🚀 Envíos rápidos y seguros</p>
+        </header>
+
+        <div class="card-grid">
+            <div class="card rate-card">
+                <i class="fas fa-coins fa-3x" style="color: var(--accent);"></i>
+                <div class="rate-value">1 BRL = 56 CUP</div>
+                <p>Tarjeta</p>
+            </div>
+
+            <div class="card rate-card">
+                <i class="fas fa-mobile-alt fa-3x" style="color: var(--secondary);"></i>
+                <div class="rate-value">1 BRL = 59 CUP</div>
+                <p>Teléfono</p>
+            </div>
+        </div>
+
+        <!-- Calculadora de conversión -->
+        <div class="calculator">
+            <h2>🧮 Calculadora de Remesas</h2>
+            <input type="number" id="amount" placeholder="Ingresa el valor en BRL" min="0">
+            <div class="result" id="result"></div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="https://wa.me/5541996123134" class="cta-button whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Contactar por WhatsApp
+            </a>
+
+            <a href="https://chat.whatsapp.com/FIcgNkJodVs0AbrYzOhQSW" class="cta-button whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Grupo de WhatsApp
+            </a>
+
+            <a href="https://t.me/refer_MarlonDae" class="cta-button telegram-btn" target="_blank">
+                <i class="fab fa-telegram"></i>
+                Canal de Telegram
+            </a>
         </div>
     </div>
-    <a href="https://wa.me/5541996123134" class="floating-whatsapp" target="_blank">📩</a>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="#" class="floating-whatsapp" id="whatsappButton">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Menú desplegable de WhatsApp -->
+    <div class="whatsapp-menu" id="whatsappMenu">
+        <a href="https://wa.me/5541996123134" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Whatsapp Marlon
+        </a>
+        <a href="https://wa.me/5541997185989" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp Noraisy
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2024 Remesas Cuba - Todos los derechos reservados</p>
+        <p>🚨 Transacciones 100% seguras</p>
+    </footer>
+
+    <script>
+        // Calculadora de conversión
+        const amountInput = document.getElementById('amount');
+        const resultDiv = document.getElementById('result');
+
+        amountInput.addEventListener('input', function() {
+            const amount = parseFloat(amountInput.value);
+            if (!isNaN(amount) && amount >= 0) {
+                const tarjeta = (amount * 56).toFixed(2);
+                const telefono = (amount * 59).toFixed(2);
+                resultDiv.innerHTML = `
+                    <p>💰 <strong>Recibirás:</strong></p>
+                    <p>${tarjeta} CUP en Tarjeta</p>
+                    <p>${telefono} CUP en Saldo Móvil</p>
+                `;
+            } else {
+                resultDiv.innerHTML = '';
+            }
+        });
+
+        // Menú desplegable de WhatsApp
+        const whatsappButton = document.getElementById('whatsappButton');
+        const whatsappMenu = document.getElementById('whatsappMenu');
+
+        whatsappButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            whatsappMenu.style.display = whatsappMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Cerrar el menú al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (!whatsappButton.contains(e.target) && !whatsappMenu.contains(e.target)) {
+                whatsappMenu.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
