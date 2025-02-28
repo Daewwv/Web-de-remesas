@@ -24,32 +24,26 @@
             background: linear-gradient(135deg, #1a1a2e, #16213e);
             color: white;
             min-height: 100vh;
-            position: relative;
+            padding: 1rem;
         }
 
         .container {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
+            margin: 0 auto;
+            padding: 1rem;
         }
 
         .hero {
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 2rem 1rem;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border-radius: 15px;
             backdrop-filter: blur(10px);
-            margin-bottom: 3rem;
-            animation: slideIn 1s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            margin-bottom: 2rem;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             background: linear-gradient(45deg, var(--accent), #ff6b6b);
             -webkit-background-clip: text;
@@ -58,76 +52,37 @@
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
         }
 
         .card {
             background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
-        }
-
-        .rate-card {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
         .rate-value {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--primary);
             margin: 1rem 0;
         }
 
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 2.5rem;
-            margin: 1rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .whatsapp-btn {
-            background: var(--secondary);
-            color: white;
-        }
-
-        .telegram-btn {
-            background: #0088cc;
-            color: white;
-        }
-
-        .cta-button:hover {
-            filter: brightness(1.1);
-            transform: scale(1.05);
-        }
-
-        /* Estilos para la calculadora */
         .calculator {
             background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
             margin: 2rem auto;
             max-width: 500px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .calculator h2 {
             font-size: 1.5rem;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-align: center;
         }
 
@@ -147,20 +102,52 @@
             margin-top: 1rem;
         }
 
-        /* Botón flotante de WhatsApp */
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .cta-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .whatsapp-btn {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .telegram-btn {
+            background: #0088cc;
+            color: white;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
         .floating-whatsapp {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 20px;
+            left: 20px;
             background: var(--secondary);
             color: white;
             padding: 15px;
             border-radius: 50%;
-            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             font-size: 24px;
             text-decoration: none;
             transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 1000;
         }
 
         .floating-whatsapp:hover {
@@ -168,19 +155,17 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
 
-        /* Menú desplegable */
         .whatsapp-menu {
             position: fixed;
-            bottom: 90px;
-            left: 30px;
+            bottom: 80px;
+            left: 20px;
             background: white;
             border-radius: 15px;
-            box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             display: none;
             flex-direction: column;
             gap: 10px;
             padding: 15px;
-            z-index: 1000;
         }
 
         .whatsapp-menu a {
@@ -201,29 +186,10 @@
 
         footer {
             background: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
             text-align: center;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .floating-icon {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -231,41 +197,38 @@
     <div class="container">
         <header class="hero">
             <h1>Remesas a Cuba 🇨🇺</h1>
-            <p class="floating-icon">🚀 Envíos rápidos y seguros</p>
+            <p>🚀 Envíos rápidos y seguros</p>
         </header>
 
         <div class="card-grid">
-            <div class="card rate-card">
+            <div class="card">
                 <i class="fas fa-coins fa-3x" style="color: var(--accent);"></i>
                 <div class="rate-value">1 BRL = 56 CUP</div>
                 <p>Tarjeta</p>
             </div>
 
-            <div class="card rate-card">
+            <div class="card">
                 <i class="fas fa-mobile-alt fa-3x" style="color: var(--secondary);"></i>
                 <div class="rate-value">1 BRL = 59 CUP</div>
                 <p>Teléfono</p>
             </div>
         </div>
 
-        <!-- Calculadora de conversión -->
         <div class="calculator">
             <h2>🧮 Calculadora de Remesas</h2>
             <input type="number" id="amount" placeholder="Ingresa el valor en BRL" min="0">
             <div class="result" id="result"></div>
         </div>
 
-        <div style="text-align: center;">
+        <div class="cta-buttons">
             <a href="https://wa.me/5541996123134" class="cta-button whatsapp-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i>
                 Contactar por WhatsApp
             </a>
-
             <a href="https://chat.whatsapp.com/FIcgNkJodVs0AbrYzOhQSW" class="cta-button whatsapp-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i>
                 Grupo de WhatsApp
             </a>
-
             <a href="https://t.me/refer_MarlonDae" class="cta-button telegram-btn" target="_blank">
                 <i class="fab fa-telegram"></i>
                 Canal de Telegram
@@ -273,20 +236,18 @@
         </div>
     </div>
 
-    <!-- Botón flotante de WhatsApp -->
     <a href="#" class="floating-whatsapp" id="whatsappButton">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Menú desplegable de WhatsApp -->
     <div class="whatsapp-menu" id="whatsappMenu">
         <a href="https://wa.me/5541996123134" target="_blank">
             <i class="fab fa-whatsapp"></i>
-            Whatsapp Marlon
+            WhatsApp Privado 1
         </a>
         <a href="https://wa.me/5541997185989" target="_blank">
             <i class="fab fa-whatsapp"></i>
-            WhatsApp Noraisy
+            WhatsApp Privado 2
         </a>
     </div>
 
@@ -296,13 +257,14 @@
     </footer>
 
     <script>
-        // Calculadora de conversión
         const amountInput = document.getElementById('amount');
         const resultDiv = document.getElementById('result');
+        const whatsappButton = document.getElementById('whatsappButton');
+        const whatsappMenu = document.getElementById('whatsappMenu');
 
-        amountInput.addEventListener('input', function() {
+        amountInput.addEventListener('input', () => {
             const amount = parseFloat(amountInput.value);
-            if (!isNaN(amount) && amount >= 0) {
+            if (!isNaN(amount) {
                 const tarjeta = (amount * 56).toFixed(2);
                 const telefono = (amount * 59).toFixed(2);
                 resultDiv.innerHTML = `
@@ -315,17 +277,12 @@
             }
         });
 
-        // Menú desplegable de WhatsApp
-        const whatsappButton = document.getElementById('whatsappButton');
-        const whatsappMenu = document.getElementById('whatsappMenu');
-
-        whatsappButton.addEventListener('click', function(e) {
+        whatsappButton.addEventListener('click', (e) => {
             e.preventDefault();
             whatsappMenu.style.display = whatsappMenu.style.display === 'flex' ? 'none' : 'flex';
         });
 
-        // Cerrar el menú al hacer clic fuera
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', (e) => {
             if (!whatsappButton.contains(e.target) && !whatsappMenu.contains(e.target)) {
                 whatsappMenu.style.display = 'none';
             }
