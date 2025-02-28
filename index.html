@@ -25,10 +25,11 @@
             color: white;
             min-height: 100vh;
             padding: 1rem;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 1rem;
         }
@@ -52,7 +53,7 @@
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
             margin: 2rem 0;
         }
@@ -66,7 +67,7 @@
         }
 
         .rate-value {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--primary);
             margin: 1rem 0;
         }
@@ -76,7 +77,7 @@
             padding: 1.5rem;
             border-radius: 15px;
             margin: 2rem auto;
-            max-width: 500px;
+            max-width: 100%;
         }
 
         .calculator h2 {
@@ -264,7 +265,7 @@
 
         amountInput.addEventListener('input', () => {
             const amount = parseFloat(amountInput.value);
-            if (!isNaN(amount) {
+            if (!isNaN(amount)) {
                 const tarjeta = (amount * 56).toFixed(2);
                 const telefono = (amount * 59).toFixed(2);
                 resultDiv.innerHTML = `
